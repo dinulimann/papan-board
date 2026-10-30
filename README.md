@@ -2,6 +2,8 @@
 
 [![ci](https://github.com/dinulimann/papan-board/actions/workflows/ci.yml/badge.svg)](https://github.com/dinulimann/papan-board/actions/workflows/ci.yml)
 
+**Live demo:** https://papan-board.vercel.app
+
 ![Board view in light mode, task detail in dark mode](docs/screenshot.jpg)
 
 A kanban board for **Studio Lontar**, a fictional product studio with two projects. It is a UI showcase in a bold, flat style with thick outlines and hard shadows. There is no backend: the sample tasks are created in your browser and every change is saved in `localStorage`.
