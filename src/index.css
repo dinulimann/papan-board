@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #fbf5ea;
+  --panel: #ffffff;
+  --soft: #f3ebdc;
+  --ink: #141414;
+  --muted: #625b52;
+  --on-color: #141414;
+  --c-orange: #ff8a3d;
+  --c-sky: #8ecbff;
+  --c-yellow: #ffd84d;
+  --c-lilac: #c9b0ff;
+  --c-lime: #b9ef6a;
+  --c-pink: #ff9ec4;
+  --c-sand: #eadcc2;
+  --danger: #e5484d;
+  color-scheme: light;
+}
+.dark {
+  --bg: #16151a;
+  --panel: #222127;
+  --soft: #2c2b32;
+  --ink: #f2ecdf;
+  --muted: #aaa398;
+  --c-sand: #d9ccb2;
+  --danger: #ff6b6f;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-soft: var(--soft);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-on: var(--on-color);
+  --color-orange: var(--c-orange);
+  --color-sky: var(--c-sky);
+  --color-yellow: var(--c-yellow);
+  --color-lilac: var(--c-lilac);
+  --color-lime: var(--c-lime);
+  --color-pink: var(--c-pink);
+  --color-sand: var(--c-sand);
+  --color-danger: var(--danger);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+/* Faint dot grid behind the board */
+.dots { background-image: radial-gradient(color-mix(in oklab, var(--ink) 14%, transparent) 1px, transparent 1px); background-size: 18px 18px; }
+
+.brut { border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); }
+.brut-sm { border: 2px solid var(--ink); box-shadow: 2px 2px 0 var(--ink); }
+.press { transition: transform 0.08s, box-shadow 0.08s; }
+.press:hover:not(:disabled) { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+.press:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 0 0 0 var(--ink); }
+.over-wip { background-image: repeating-linear-gradient(-45deg, color-mix(in oklab, var(--danger) 14%, transparent) 0 8px, transparent 8px 16px); }
+
+:focus-visible { outline: 3px solid var(--c-orange); outline-offset: 2px; }
+::selection { background: var(--c-yellow); color: #141414; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+.tnum { font-variant-numeric: tabular-nums; }
